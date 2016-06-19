@@ -26,7 +26,9 @@ def api(request):
 	person = Person()
 	person.name = 'Sachin'
 
-	data = serializers.serialize('json', person)
+	persons = Person.objects.all()
+
+	data = serializers.serialize('json', persons)
 
 	return HttpResponse(data, content_type='application/json')
 
