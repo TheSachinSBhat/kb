@@ -23,10 +23,12 @@ def api(request):
 	class Person(object):
 		pass
 
-	person = Person()
-	person.name = 'Sachin'
+	sachin = Person()
+	sachin.name = 'Sachin'
 
-	persons = Person.objects.all()
+	persons = set([])
+
+	persons.add(sachin)
 
 	data = serializers.serialize('json', persons)
 
