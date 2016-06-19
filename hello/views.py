@@ -5,6 +5,7 @@ import json
 
 from django.core import serializers
 
+from django.db import models
 from .models import Greeting
 
 # Create your views here.
@@ -20,11 +21,13 @@ def api(request):
 
 	#data = json.dumps(some_data_to_dump)
 
-	class Person(object):
-		pass
+	class Person(models.Model):
+		first_name = models.CharField(max_length=30)
+		last_name = models.CharField(max_length=30)
 
 	sachin = Person()
-	sachin.name = 'Sachin'
+	sachin.first_name = 'Sachin'
+	sachin.last_name = 'Bhat'
 
 	persons = set([])
 
