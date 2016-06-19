@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from django.utils import simplejson
+import json
 
 from .models import Greeting
 
@@ -16,7 +16,7 @@ def api(request):
 		'some_var_2': 'bar',
 	}
 
-	data = simplejson.dumps(some_data_to_dump)
+	data = json.dumps(some_data_to_dump)
 
 	return HttpResponse(data, content_type='application/json')
 
