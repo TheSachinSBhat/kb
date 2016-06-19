@@ -5,16 +5,18 @@ from .models import Greeting
 
 # Create your views here.
 def index(request):
-    # return HttpResponse('Hello from Python!')
-    return render(request, 'index.html')
+	# return HttpResponse('Hello from Python!')
+	return render(request, 'index.html')
 
+def api(request):
+	return HttpResponse('Hello from KB IO API!')
 
 def db(request):
 
-    greeting = Greeting()
-    greeting.save()
+	greeting = Greeting()
+	greeting.save()
 
-    greetings = Greeting.objects.all()
+	greetings = Greeting.objects.all()
 
-    return render(request, 'db.html', {'greetings': greetings})
+	return render(request, 'db.html', {'greetings': greetings})
 
