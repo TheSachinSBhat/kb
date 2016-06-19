@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 import json
 
+from django.core import serializers
+
 from .models import Greeting
 
 # Create your views here.
@@ -11,12 +13,20 @@ def index(request):
 	return render(request, 'index.html')
 
 def api(request):
-	some_data_to_dump = {
-		'some_var_1': 'foo',
-		'some_var_2': 'bar',
-	}
+	#some_data_to_dump = {
+	#	'some_var_1': 'foo',
+	#	'some_var_2': 'bar',
+	#}
 
-	data = json.dumps(some_data_to_dump)
+	#data = json.dumps(some_data_to_dump)
+
+	class Person(object):
+		pass
+
+	person = Person()
+	person.name = 'Sachin'
+
+	data = serializers.serialize('json', person)
 
 	return HttpResponse(data, content_type='application/json')
 
