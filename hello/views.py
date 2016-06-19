@@ -22,6 +22,7 @@ def api(request):
 	#data = json.dumps(some_data_to_dump)
 
 	class Person(models.Model):
+		pass
 		first_name = models.CharField(max_length=30)
 		last_name = models.CharField(max_length=30)
 
